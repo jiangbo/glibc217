@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "glibc2.17"
+name = "glibc-2-17"
 version = "0.1.0"
 
 [dependencies]

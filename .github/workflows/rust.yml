@@ -11,7 +11,7 @@ on:
         required: true
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   create-release:
@@ -53,10 +53,10 @@ jobs:
 
       - name: Prepare archive
         run: |
-          strip target/release/hq
-          export ARCHIVE_NAME=hq-${{ env.INPUT_TAG }}-linux-x64.tar.gz
+          strip target/release/glibc217
+          export ARCHIVE_NAME=glibc217-${{ env.INPUT_TAG }}-linux-x64.tar.gz
           echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
-          tar -czvf $ARCHIVE_NAME -C target/release glib217
+          tar -czvf $ARCHIVE_NAME -C target/release glibc217
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
@@ -65,7 +65,7 @@ jobs:
         with:
           tag_name: ${{ env.INPUT_TAG }}
           release_name: ${{ env.INPUT_TAG }}
-          body: HQ ${{ env.INPUT_TAG }}
+          body: glibc217 ${{ env.INPUT_TAG }}
           commitish: ${{ env.INPUT_SHA }}
           draft: false
           prerelease: false
